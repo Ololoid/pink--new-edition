@@ -12,7 +12,7 @@ var gulp = require('gulp'), // Подключаем Gulp
     autoprefixer = require('gulp-autoprefixer'); // Подключаем библиотеку для автоматического добавления префиксов
 
 gulp.task('sass', function() { // Создаем таск Sass
-    return gulp.src('app/sass/**/*.sass') // Берем источник
+    return gulp.src('app/sass/main.sass') // Берем источник
         .pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
         .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {
             cascade: true
@@ -43,7 +43,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('css-libs', ['sass'], function() {
-    return gulp.src('app/css/libs.css') // Выбираем файл для минификации
+    return gulp.src('app/css/main.css') // Выбираем файл для минификации
         .pipe(cssnano()) // Сжимаем
         .pipe(rename({
             suffix: '.min'
